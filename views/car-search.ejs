@@ -1,0 +1,124 @@
+<%- contentFor('body') %>
+
+<link rel="stylesheet" href="/assets/css/explore-page.css">
+
+<div id="bg-dark" class="bg fixed-top"></div>
+<div>
+  <div class="position-relative search-box w-100">
+    <div class="container">
+      <div id="search-box" class="shadow p-4 bg-body rounded position-relative">
+        <div class="row">
+          <div class="col-12 label-full">
+            <div class="row">
+              <div class="col-md">
+                <div class="row">
+                  <div class="col-md-3">
+                    <label for="driver-type">Tipe Driver</label>
+                  </div>
+                  <div class="col-md-3">
+                    <label for="date">Tanggal</label>
+                  </div>
+                  <div class="col-md-3">
+                    <label for="time">Waktu Jemput / Ambil</label>
+                  </div>
+                  <div class="col-md-3">
+                    <label for="count-people"
+                      >Jumlah Penumpang (opsional)</label
+                    >
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-2"></div>
+            </div>
+          </div>
+          <div class="col-12">
+            <div class="row">
+              <div id="search-box-child" class="col-md">
+                <div class="row">
+                  <div class="col-md-3">
+                    <label class="label-responsive" for="driver-type"
+                      >Tipe Driver</label
+                    >
+                    <select
+                      id="driver-type"
+                      class=""
+                      placeholder="Pilih Tipe Driver"
+                    >
+                      <option value="">Pilih Tipe Driver</option>
+                      <option value="1">Dengan Supir</option>
+                      <option value="2">Lepas Kunci</option>
+                    </select>
+                  </div>
+                  <div class="col-md-3">
+                    <label class="label-responsive" for="date">Tanggal</label>
+                    <div class="input-group input-group-lg">
+                      <input
+                        id="date"
+                        type="date"
+                        class="form-control"
+                        placeholder="Pilih Tanggal"
+                      />
+                      <span class="input-group-text">
+                        <i class="bi bi-calendar fs-5"></i
+                      ></span>
+                    </div>
+                  </div>
+                  <div class="col-md-3">
+                    <label class="label-responsive" for="time"
+                      >Waktu Jemput / Ambil</label
+                    >
+                    <div class="input-group input-group-lg">
+                      <input
+                        id="time"
+                        type="time"
+                        class="form-control"
+                        placeholder="Pilih Waktu"
+                      />
+                      <span class="input-group-text">
+                        <i class="bi bi-clock fs-5"></i
+                      ></span>
+                    </div>
+                  </div>
+                  <div class="col-md-3">
+                    <label class="label-responsive" for="count-people"
+                      >Jumlah Penumpang (opsional)</label
+                    >
+                    <div class="input-group input-group-lg">
+                      <input
+                        id="count-people"
+                        type="number"
+                        class="form-control"
+                        aria-label="Inputkan jumlah penumpang dalam angka"
+                        placeholder="Jumlah Penumpang"
+                      />
+                      <span class="input-group-text">
+                        <i class="bi bi-people fs-5"></i
+                      ></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-2">
+                <button id="search-now" class="btn btn__mod w-100 btn-success">
+                  Cari Mobil
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container mt-5">
+      <div id="result-part" class="row">
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+<%- contentFor('addJsvascript') %>
+
+<script src="/assets/scripts/explore-view-templating.js"></script>
+<script src="/assets/scripts/explore-page.js"></script>
+
+<script></script>

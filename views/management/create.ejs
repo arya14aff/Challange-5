@@ -1,0 +1,134 @@
+<%- contentFor('head') %>
+<title>Add Car Data</title>
+<link rel="stylesheet" href="/assets/css/update_car.css">
+
+<%- contentFor('main-content') %>
+<div class="container edit_car">
+    <ul>
+        <li>
+            <a href="cars.html">Car <span><img src="/assets/images/chevron-right.png" alt=""></span></a>
+        </li>
+        <li>
+            <a href="cars.html">List Car<span><img src="/assets/images/chevron-right.png" alt=""></span></a>
+        </li>
+        <li class="last_menu">
+            <a href="">Add Car Information</a>
+        </li>
+    </ul>
+    <h2>Add Car Information</h2>
+    <form class="form_control" enctype="multipart/form-data" name="form-create">
+        <div class=" container row form_update_car">
+            <div class="input-group mb-3 mt-3">
+                <label for="name" class="col-sm-2 col-form-label">Nama <sup>&#8902;</sup></label>
+                <div class="col-sm-5">
+                    <input id="name" class="form-control" type="text" placeholder="Avanza" name="name" required>
+                </div>
+            </div>
+            <div class="input-group mb-3">
+                <label for="type_car" class="col-sm-2 col-form-label">Type Mobil <sup>&#8902;</sup></label>
+                <!-- <div class="col-sm-5">
+                    <input class="form-control" type="text" placeholder="Type Mobil" name="type_car">
+                </div> -->
+                <select name="type_car" id="type_car" required>
+                    <!-- Dibuatkan EJS nya -->
+                    <% typeCars.forEach(element => { %>
+                     
+                        <option value="<%= element.id %>"> <%= element.name %> </option>
+
+                    <% }); %> 
+                </select>
+            </div>
+            <div class="input-group mb-3">
+                <label for="price" class="col-sm-2 col-form-label">Sewa Perhari Hari <sup>&#8902;</sup></label>
+                <div class="col-sm-5">
+                    <input type="number" class="form-control" id="price" placeholder="Rp 0-" name="price" required/>
+                </div>
+            </div>
+            <!-- <div class="input-group mb-3">
+                <label for="" class="col-sm-2 col-form-label">Type Mobil <sup>&#8902;</sup></label>
+                <div class="col-sm-5">
+                    <input class="form-control" type="text" placeholder="Type Mobil">
+                </div>
+            </div> -->
+            <div class="input-group mb-3">
+                <label for="" class="col-sm-2 col-form-label">Ketersediaan Supir<sup>&#8902;</sup></label>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="available" id="available"
+                        value="true" required>
+                    <label class="form-check-label" for="available">Ada</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="available" id="not-available"
+                        value="false" required>
+                    <label class="form-check-label" for="not-available">Tidak Ada</label>
+                </div>
+            </div>
+            <div class="input-group mb-3">
+                <label id="datePicker" for="available_at" class="col-sm-2 col-form-label">Tanggal Tersedia <sup>&#8902;</sup></label>
+                <div class="col-sm-5">
+                    <input type="datetime-local" class="form-control" name="available_at" id="available_at" required/>
+                </div>
+            </div>
+            <div class="input-group mb-3">
+                <label for="capacity" class="col-sm-2 col-form-label">Kapasitas <sup>&#8902;</sup></label>
+                <div class="col-sm-5">
+                    <input type="text" class="form-control" id="capacity" placeholder="Kapasitas" name="capacity" required/>
+                </div>
+            </div>
+            <div class="input-group mb-3">
+                <label for="size" class="col-sm-2 col-form-label">Ukuran</label>
+                <div class="col-sm-5">
+                    <select class="form-select" id="size" name="size" required>
+                        <option selected>Choose...</option>
+                        <option value="small">Small</option>
+                        <option value="medium">Medium</option>
+                        <option value="large">Large</option>
+                    </select>
+                </div>
+            </div>
+            <div class="input-group mb-3">
+                <label for="image" class="col-sm-2 col-form-label">Foto <sup>&#8902;</sup></label>
+                <div class="col-sm-5">
+                    <input type="file" class="form-control" id="image" name="image" required>
+                    <!-- <p>File size max. 2MB</p> -->
+                </div>
+            </div>
+            <div class="input-group mb-3">
+                <label for="year" class="col-sm-2 col-form-label">Tahun Mobil <sup>&#8902;</sup></label>
+                <div class="col-sm-5">
+                    <input type="number" class="form-control" id="year" placeholder="Tahun Mobil" name="year" required/>
+                </div>
+            </div>
+            <div class="input-group mb-3">
+                <label for="desc" class="col-sm-2 col-form-label">Keterangan <sup>&#8902;</sup></label>
+                <div class="col-sm-5">
+                    <textarea class="form-control" id="desc" rows="3" name="description" required></textarea>
+                </div>
+            </div>
+            <div class="input-group mb-3">
+                <label for="transmission" class="col-sm-2 col-form-label">Trasmisi</label>
+                <div class="col-sm-5">
+                    <select class="form-select" id="transmission" name="transmission" required>
+                        <option selected>Choose...</option>
+                        <option value="manual">Manual</option>
+                        <option value="matic">Matic</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div id="btn-op">
+            <a id="cancel" href="/auth/<%= userID %>/cars-dashboard" type="button" class="btn btn_cancel">Cancel</a>
+            <button type="submit" class="btn btn_save">Save</button>
+        </div>
+        <div id="loading" class="d-none">
+            <button class="btn btn-primary w-100" type="button" disabled>
+                <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                Loading...
+            </button>
+        </div>
+    </form>
+</div>
+
+<%- contentFor('scripts') %>
+
+<script src="/assets/scripts/create-page.js"></script>

@@ -1,0 +1,56 @@
+<%- contentFor('head') %>
+<title>Log In - Page</title>
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+  }
+</style>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+
+<%- contentFor('body') %>
+
+<nav class="navbar justify-content-center" style="background-color: black;color:white;">
+  <h1>Binar Rental Car</h1>
+</nav>
+<div id="alert" class="alert alert-danger mb-3 mt-3 d-none" role="alert">
+  A simple danger alert—check it out!
+</div>
+<div class="card mx-auto my-5 py-4" style="width: 40%;">
+  <h1 class="text-center">Login</h1>
+  <div class="container my-2">
+    <label for="" class="form-label">Username</label>
+    <input type="text" name="username" id="username" placeholder="Username" class="form-control" required>
+  </div>
+  <div class="container my-2">
+    <label for="" class="form-label">Password</label>
+    <input type="password" name="password" id="password" class="form-control" placeholder="Password" required>
+  </div>
+
+  <div class="container my-4">
+    <button id="submit" type="button" class="btn btn-success form-control">
+      Login
+    </button>
+    <button id="loading" class="btn btn-primary form-control d-none" type="button" disabled>
+      <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+      Loading...
+    </button>
+  </div>
+  <div class="container">
+    <div style="float:left; width: 48%;">
+      <hr />
+    </div>
+    <span style="color: grey;">Or</span>
+    <div style="float:right; width: 48%;">
+      <hr />
+    </div>
+  </div>
+  <div class="container my-2">
+    <p class="text-center">Don't have account yet? Please <a href="/register-page">Sign In</a></p>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js" integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk" crossorigin="anonymous"></script>
+<script src="/assets/scripts/xmlhttprequest.js"></script>
+<script src="/assets/scripts/login.js"></script>

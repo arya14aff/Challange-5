@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="/assets/css/cars.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous" />
+  <title><%= title %> </title>
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <%- defineContent('head') %> 
+
+</head>
+
+<body>
+  <div class="row row__mod">
+    <div id="main-sidebar" class="col-1 p-0 col-sidebar text-center d-flex">
+      <div class="col-sidebar-inner pt-3 pb-3">
+        <div>
+          <img src="/assets/images/Rectangle 63.png" />
+        </div>
+        <div class="mt-3">
+          <a href="/" class="text-white">
+            <img src="/assets/images/Group_2.png" />
+            <br>
+            Dashbord
+          </a>
+        </div>
+        <div class="mt-3">
+          <a class="text-white pointer collapse-side" role="button"><img src="/assets/images/fi_truck.png" />
+            <br>
+            Cars
+          </a>
+        </div>
+      </div>
+      <div id="sidebar-open" class="col-sidebar-collapse bg-light text-start d-none">
+        <div class="p-3">
+          <img src="/assets/images/Rectangle 62.png">
+        </div>
+        <ul class="p-0">
+          <li>
+            <a>
+              <div class="p-4 fw-bold text-secondary">CAR</div>
+            </a>
+          </li>
+          <li>
+            <a href="/auth/<%= userID %>/cars-dashboard">
+              <div class="ps-4 pe-4 pt-3 pb-3 fw-bold active">LIST CAR</div>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div id="content-sidebar" class="col-11 col-content p-0">
+      <div class="row row__mod">
+        <div class="col-12 p-0">
+          <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top col-content">
+            <div class="container-fluid">
+              <a id="toogle-default" class="navbar-brand collapse-side"><img src="/assets/images/fi_menu.png" /></a>
+              <a id="toogle-medium" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar"><img src="/assets/images/fi_menu.png" /></a>
+
+              <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+                <div class="offcanvas-header">
+                  <h5 class="offcanvas-title" id="offcanvasNavbarLabel"><img src="/assets/images/Rectangle 63.png"></h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                  <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                    <li class="nav-item">
+                      <a href="#" class="home_img"> <img src="/assets/images/Group_2.png" />&nbsp;&nbsp;Dashbord</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><img src="/assets/images/fi_truck.png" />&nbsp;&nbsp;Cars
+                      </a>
+                      <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">Car</a></li>
+                        <li><a class="dropdown-item" href="/auth/<%= userID %>/cars-dashboard">List Car</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                </ul>
+                <form class="d-flex" id="search-name">
+                  <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                  <button class="btn btn-outline-primary" type="submit">Search</button>
+                </form>
+                <div class="d-flex ms-3 me-4 pt-2 pb-2">
+                  <div class="dropdown mx-auto">
+                    <a class="dropdown-toggle text-dark" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                      <img class="rounded-circle" width="50px" src="/assets/images/avatar.png" />
+                    </a>
+
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                      <li><a class="dropdown-item" id="logout">Logout</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </nav>
+        </div>
+        <div class="col-12 p-0">
+            <%- defineContent('main-content') %> 
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    let userID = '<%- userID %>';
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous">
+  </script>
+  <script src="/assets/scripts/xmlhttprequest.js"></script>
+  <script src="/assets/scripts/management-home.js"></script>
+  <script>
+  </script>
+  <%- defineContent('scripts') %> 
+</body>
+
+</html>
